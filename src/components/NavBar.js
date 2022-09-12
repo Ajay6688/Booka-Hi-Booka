@@ -1,5 +1,4 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import CardLists from "./CardLists";
 import { useRef } from "react";
 import axios from "axios";
@@ -9,7 +8,7 @@ export default function NavBar() {
 
   const inputRef = useRef(null);
   const apiKey = "AIzaSyCJcK2NxXCLnCy1f3FZc9Rv1MbKWRApImQ";
-  const baseURL = `https://www.googleapis.com/books/v1/volumes?q=${"react"}:keyes&key=${apiKey}`;
+  const baseURL = `https://www.googleapis.com/books/v1/volumes?q=${"reactjs"}:keyes&key=${apiKey}`;
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
       setstate(response.data.items);
@@ -18,12 +17,11 @@ export default function NavBar() {
   if (!state) return null;
 
   function search(e) {
-    //   // React.useEffect(() => {
-
     e.preventDefault();
+
     const apiKey = "AIzaSyCJcK2NxXCLnCy1f3FZc9Rv1MbKWRApImQ";
     const baseURL = `https://www.googleapis.com/books/v1/volumes?q=${
-      inputRef.current.value ? inputRef.current.value : "marvel"
+      inputRef.current.value ? inputRef.current.value : "reactjs"
     }:keyes&key=${apiKey}`;
 
     axios.get(baseURL).then((response) => {
@@ -56,7 +54,7 @@ export default function NavBar() {
                   Home
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="#">
                   Link
                 </a>
@@ -102,7 +100,7 @@ export default function NavBar() {
                 >
                   Disabled
                 </a>
-              </li>
+              </li> */}
             </ul>
             <form className="d-flex w-50">
               <input
@@ -125,7 +123,7 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
-      <CardLists data={state ? state : "marvel"} />
+      <CardLists data={state ? state : "reactjs"} />
     </>
   );
 }
