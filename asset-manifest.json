@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Booka-Hi-Booka/static/css/main.da47d32e.css",
-    "main.js": "/Booka-Hi-Booka/static/js/main.57162c2b.js",
+    "main.js": "/Booka-Hi-Booka/static/js/main.d311bfe4.js",
     "static/js/787.f90ff90a.chunk.js": "/Booka-Hi-Booka/static/js/787.f90ff90a.chunk.js",
     "static/media/login.jpg": "/Booka-Hi-Booka/static/media/login.6c71ca885b28165d63ae.jpg",
     "index.html": "/Booka-Hi-Booka/index.html",
     "main.da47d32e.css.map": "/Booka-Hi-Booka/static/css/main.da47d32e.css.map",
-    "main.57162c2b.js.map": "/Booka-Hi-Booka/static/js/main.57162c2b.js.map",
+    "main.d311bfe4.js.map": "/Booka-Hi-Booka/static/js/main.d311bfe4.js.map",
     "787.f90ff90a.chunk.js.map": "/Booka-Hi-Booka/static/js/787.f90ff90a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.da47d32e.css",
-    "static/js/main.57162c2b.js"
+    "static/js/main.d311bfe4.js"
   ]
 }
