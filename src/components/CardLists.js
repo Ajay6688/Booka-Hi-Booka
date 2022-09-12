@@ -1,18 +1,22 @@
 import React from "react";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CardLists(props) {
+  const navigate = useNavigate();
+
+  const navToBooksDes = (e, data) => {
+    e.preventDefault();
+    console.log(data);
+    navigate("/Booka-Hi-Booka/books-description", { state: data });
+  };
   console.log(props.data);
-  // const [state, setstate] = useState(null)
-  // setstate(props.data)
 
   return (
     <>
       <div className="container text-center">
-        <div className="row cols-4 ">
+        <div className="row cols-5 ">
           {props.data.map((a, index) => {
-            const { title, imageLinks, authors } = a.volumeInfo;
+            const { title, imageLinks, authors, description } = a.volumeInfo;
             return (
               <div
                 className="  col pt-3 d-flex justify-content-center text-center"
@@ -36,9 +40,20 @@ export default function CardLists(props) {
                         }
                       })}
                     </p>
-                    <a href="#" className="btn btn-primary">
+                    <button
+                      onClick={(e) => {
+                        const { description, authors, title } = a.volumeInfo;
+                        const data = {
+                          description: description,
+                          authors: authors,
+                          title: title,
+                        };
+                        navToBooksDes(e, data);
+                      }}
+                      className="btn btn-primary"
+                    >
                       description
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
