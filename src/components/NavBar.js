@@ -8,7 +8,8 @@ export default function NavBar() {
 
   const inputRef = useRef(null);
   const apiKey = "AIzaSyCJcK2NxXCLnCy1f3FZc9Rv1MbKWRApImQ";
-  const baseURL = `https://www.googleapis.com/books/v1/volumes?q=${"reactjs"}:keyes&key=${apiKey}`;
+  let searchInput = localStorage.getItem("searchInput");
+  const baseURL = `https://www.googleapis.com/books/v1/volumes?q=${searchInput ||"reactjs"}:keyes&key=${apiKey}`;
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
       setstate(response.data.items);
@@ -16,9 +17,13 @@ export default function NavBar() {
   }, []);
   if (!state) return null;
 
+  // useEffect(() => {
+  //   localStorage.setItem('dataKey', JSON.stringify(data));
+  // }, [data]);
+
   function search(e) {
     e.preventDefault();
-
+    localStorage.setItem('searchInput', JSON.stringify(inputRef.current.value));
     const apiKey = "AIzaSyCJcK2NxXCLnCy1f3FZc9Rv1MbKWRApImQ";
     const baseURL = `https://www.googleapis.com/books/v1/volumes?q=${
       inputRef.current.value ? inputRef.current.value : "reactjs"
